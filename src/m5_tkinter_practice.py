@@ -12,25 +12,39 @@ from tkinter import ttk
 def main():
     """ Constructs a GUI with stuff on it. """
     # ------------------------------------------------------------------
-    # TODO: 2. After reading and understanding the m1e module,
+    # DONE: 2. After reading and understanding the m1e module,
     #   ** make a window that shows up. **
     # ------------------------------------------------------------------
+    root = tkinter.Tk()
 
-    # ------------------------------------------------------------------
-    # TODO: 3. After reading and understanding the m2e module,
+
+
+
+        # ------------------------------------------------------------------
+    # DONE: 3. After reading and understanding the m2e module,
     #   ** put a Frame on the window. **
     # ------------------------------------------------------------------
+    frame1 = ttk.Frame(root, padding=40)
+    frame1.grid()
 
     # ------------------------------------------------------------------
-    # TODO: 4. After reading and understanding the m2e module,
+    # DONE: 4. After reading and understanding the m2e module,
     #   ** put a Button on the Frame. **
     # ------------------------------------------------------------------
+    print_hello_bottom = ttk.Button(frame1, text='Print Hello')
+
+
 
     # ------------------------------------------------------------------
-    # TODO: 5. After reading and understanding the m3e module,
+    # DONE: 5. After reading and understanding the m3e module,
     #   ** make your Button respond to a button-press **
     #   ** by printing   "Hello"  on the Console.     **
     # ------------------------------------------------------------------
+    print_hello_bottom['command']=lambda:do_something()
+    print_hello_bottom.grid()
+
+
+
 
     # ------------------------------------------------------------------
     # TODO: 6. After reading and understanding the m4e module,
@@ -40,9 +54,14 @@ def main():
     #        on the Console if the current string in the Entry box
     #        is the string 'ok', but print "Goodbye" otherwise.
     # ------------------------------------------------------------------
+    entry_box=ttk.Entry(frame1)
+    entry_box.grid()
+    check_helll_bottom=ttk.Button(frame1,text='check hello')
+    check_helll_bottom['command']=lambda:check(entry_box)
+    check_helll_bottom.grid()
 
     # ------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -64,11 +83,32 @@ def main():
     #      s = entry_box.get()
     #      n = int(s)
     ####################################################################
-
+    entry_box_2=ttk.Entry(frame1)
+    entry_box_2.grid()
+    type_multiple_time=ttk.Button(frame1,text='multiple')
+    type_multiple_time['command']=lambda :print_multiple(entry_box_2,entry_box)
+    type_multiple_time.grid()
+    root.mainloop()
     # ------------------------------------------------------------------
     # TODO: 8. As time permits, do other interesting GUI things!
     # ------------------------------------------------------------------
 
+def do_something():
+    print('hello')
+
+
+def check(str):
+    strr=str.get()
+    if strr=='hello':
+        print('ok')
+    else:
+        print('Goodbye')
+
+def print_multiple(entry_box_2,entry_box):
+    time=int(entry_box_2.get())
+    str=entry_box.get()
+    for _ in range(time):
+        print(str)
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
