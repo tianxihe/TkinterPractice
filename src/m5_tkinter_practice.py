@@ -90,7 +90,7 @@ def main():
     type_multiple_time.grid()
     root.mainloop()
     # ------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # DONE: 8. As time permits, do other interesting GUI things!
     # ------------------------------------------------------------------
 
 def do_something():
